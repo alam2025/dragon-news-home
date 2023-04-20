@@ -5,15 +5,32 @@ import './RightNav.css'
 import qzone1 from './../../../assets/qZone1.png'
 import qzone2 from './../../../assets/qZone2.png'
 import qzone3 from './../../../assets/qZone3.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
+
 
 const Rightnav = () => {
+
+      const { handleGoogleSignIn, user, handleGithubsignIn,handleFacebookSignIn } = useContext(AuthContext)
+      //  googleSignIn
+
+
       return (
             <div>
-                  <h5 className=' fw-bold'>Login With</h5>
-                  <div className=' d-flex flex-column gap-2'>
-                        <Button variant="outline-success"><FaGoogle></FaGoogle> Login with Google</Button>
-                        <Button variant="outline-secondary"><FaGithub /> Login with GitHub</Button>
-                  </div>
+
+                  {
+                        !user &&
+                        <div>
+                              <h5 className=' fw-bold'>Login With</h5>
+                              <div className=' d-flex flex-column gap-2'>
+                                    <Button onClick={handleFacebookSignIn} variant="outline-primary"><FaFacebook></FaFacebook> Login with Facebook</Button>
+                                    <Button onClick={handleGoogleSignIn} variant="outline-success"><FaGoogle></FaGoogle> Login with Google</Button>
+
+                                    <Button onClick={handleGithubsignIn} variant="outline-secondary"><FaGithub /> Login with GitHub</Button>
+                              </div>
+                        </div>
+
+                  }
 
                   <div className='my-4'>
                         <h5 className=' fw-bold'>Find Us On</h5>

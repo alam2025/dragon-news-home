@@ -9,6 +9,7 @@ import Home from './componets/Home/Home';
 import Login from './componets/Login/Login';
 import About from './componets/About/About';
 import Career from './componets/Career/Career';
+import Register from './componets/Register/Register';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login />
+      },
+      {
+        path:'register',
+        element:<Register/>
       },
       {
         path: 'about',
